@@ -6,9 +6,9 @@ import '@cells-practica/cells-practica/cells-practica.js';
 import '@cells-list/cells-list/cells-list.js';
 
 /* eslint-disable new-cap */
-class Perfil1Page extends BbvaCoreIntlMixin(CellsPage) {
+class DetailPage extends BbvaCoreIntlMixin(CellsPage) {
   static get is() {
-    return 'perfil1-page';
+    return 'detail-page';
      
   }
 
@@ -18,6 +18,7 @@ class Perfil1Page extends BbvaCoreIntlMixin(CellsPage) {
        item2:{type:Array},
     };
   }
+
 
   constructor() {
     super();
@@ -29,15 +30,20 @@ class Perfil1Page extends BbvaCoreIntlMixin(CellsPage) {
       this.item2=[
         'Lorem ipsum dolor sit amet',
         'Lorem ipsum dolor sit amet',
+        'Lorem ipsum dolor sit amet',
         'Lorem ipsum dolor sit amet'
       ]
   }
 
+  _selectedHome1(){
+    location.href='/dist/#!/perfil2';
+  }
 
+ 
   render() {
     return html`
-    <cells-practica></cells-practica>
-    <cells-list .item1="${this.item1}" .item2="${this.item2}"></cells-list>
+    <cells-practica @action-selected-header="${this._selectedHome1}"></cells-practica>
+    <cells-body .item1="${this.item1}" .item2="${this.item2}"></cells-body>
       `;
   }
 
@@ -48,4 +54,4 @@ class Perfil1Page extends BbvaCoreIntlMixin(CellsPage) {
   }
 }
 
-window.customElements.define(Perfil1Page.is, Perfil1Page);
+window.customElements.define(DetailPage.is, DetailPage);
